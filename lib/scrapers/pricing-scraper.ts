@@ -1,7 +1,6 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import { PricingData } from '../pricing-data';
-import fallbackData from '@/data/static/fallback-pricing.json';
 
 export class PricingScraper {
   private static cache: PricingData | null = null;
@@ -18,26 +17,17 @@ export class PricingScraper {
       return this.cache;
     }
 
-    try {
-      // Attempt to scrape fresh data
-      const pricingData = await this.scrapePricingData();
-      this.cache = pricingData;
-      this.lastFetch = new Date();
-      return pricingData;
-    } catch (error) {
-      console.error('Error scraping pricing data, using fallback:', error);
-      // Return fallback data if scraping fails
-      return fallbackData as PricingData;
-    }
+    // Attempt to scrape fresh data
+    const pricingData = await this.scrapePricingData();
+    this.cache = pricingData;
+    this.lastFetch = new Date();
+    return pricingData;
   }
 
   private static async scrapePricingData(): Promise<PricingData> {
-    // For now, we'll use the fallback data
-    // In production, this would scrape actual pricing pages
-    // This is a placeholder for the scraping logic
+    // Scrape actual pricing pages from cloud providers
+    // This requires implementing actual scraping logic or using APIs
     
-    // Example scraping approach (commented out for safety):
-    /*
     const awsData = await this.scrapeAWS();
     const gcpData = await this.scrapeGCP();
     const azureData = await this.scrapeAzure();
@@ -48,29 +38,25 @@ export class PricingScraper {
       bandwidth: [...awsData.bandwidth, ...gcpData.bandwidth, ...azureData.bandwidth],
       lastUpdated: new Date().toISOString(),
     };
-    */
-
-    // Return fallback data for now
-    return {
-      ...fallbackData as PricingData,
-      lastUpdated: new Date().toISOString(),
-    };
   }
 
-  // Placeholder methods for future scraping implementation
+  // Scraping methods - to be implemented with actual scraping logic or API calls
   private static async scrapeAWS() {
-    // This would scrape AWS pricing pages
-    // For safety, we're not implementing actual scraping yet
+    // TODO: Implement AWS pricing scraping
+    // Can use AWS Price List API when API keys are configured
+    // For now, return empty arrays - will show "no data" in UI
     return { compute: [], storage: [], bandwidth: [] };
   }
 
   private static async scrapeGCP() {
-    // This would scrape GCP pricing pages
+    // TODO: Implement GCP pricing scraping
+    // Can use GCP Cloud Billing API when API keys are configured
     return { compute: [], storage: [], bandwidth: [] };
   }
 
   private static async scrapeAzure() {
-    // This would scrape Azure pricing pages
+    // TODO: Implement Azure pricing scraping
+    // Can use Azure Pricing API when API keys are configured
     return { compute: [], storage: [], bandwidth: [] };
   }
 

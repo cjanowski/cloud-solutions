@@ -11,10 +11,12 @@ interface SystemPlan {
     aws: string;
     gcp: string;
     azure: string;
+    local: string;
     notes: string;
   }[];
   considerations: string[];
   estimatedCost: string;
+  localCost?: string;
 }
 
 const systemPlans: Record<string, SystemPlan> = {
@@ -27,6 +29,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'Application Load Balancer (ALB)',
         gcp: 'Cloud Load Balancing',
         azure: 'Application Gateway',
+        local: 'HAProxy / NGINX',
         notes: 'Distributes traffic across instances'
       },
       {
@@ -34,6 +37,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'EC2 Auto Scaling / ECS',
         gcp: 'Compute Engine / GKE',
         azure: 'Virtual Machines / AKS',
+        local: 'Physical Servers / VMware',
         notes: '2-10 instances based on load'
       },
       {
@@ -41,6 +45,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'RDS (PostgreSQL/MySQL)',
         gcp: 'Cloud SQL',
         azure: 'Azure SQL Database',
+        local: 'PostgreSQL / MySQL on-prem',
         notes: 'Multi-AZ for high availability'
       },
       {
@@ -48,6 +53,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'ElastiCache (Redis)',
         gcp: 'Memorystore',
         azure: 'Azure Cache for Redis',
+        local: 'Redis / Memcached',
         notes: 'Reduces database load'
       },
       {
@@ -55,6 +61,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'S3',
         gcp: 'Cloud Storage',
         azure: 'Blob Storage',
+        local: 'NAS / SAN / MinIO',
         notes: 'Static assets, user uploads'
       },
       {
@@ -62,6 +69,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'CloudFront',
         gcp: 'Cloud CDN',
         azure: 'Azure CDN',
+        local: 'Varnish / NGINX Cache',
         notes: 'Global content delivery'
       }
     ],
@@ -72,7 +80,8 @@ const systemPlans: Record<string, SystemPlan> = {
       'Use CDN for static assets',
       'Set up monitoring and alerting'
     ],
-    estimatedCost: '$500-2,000/month (small to medium scale)'
+    estimatedCost: '$500-2,000/month (small to medium scale)',
+    localCost: '$2,000-5,000 upfront + $200-500/month (hardware, power, maintenance)'
   },
   'microservices': {
     name: 'Microservices Architecture',
@@ -83,6 +92,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'API Gateway / ALB',
         gcp: 'Cloud Endpoints / API Gateway',
         azure: 'API Management',
+        local: 'Kong / Tyk / NGINX',
         notes: 'Single entry point for all services'
       },
       {
@@ -90,6 +100,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'EKS (Kubernetes)',
         gcp: 'GKE',
         azure: 'AKS',
+        local: 'Self-hosted Kubernetes',
         notes: 'Manages containerized services'
       },
       {
@@ -97,6 +108,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'App Mesh / Istio',
         gcp: 'Anthos Service Mesh',
         azure: 'Service Fabric Mesh',
+        local: 'Istio / Linkerd / Consul',
         notes: 'Service-to-service communication'
       },
       {
@@ -104,6 +116,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'ECR',
         gcp: 'Artifact Registry',
         azure: 'Container Registry',
+        local: 'Harbor / Nexus / GitLab',
         notes: 'Store Docker images'
       },
       {
@@ -111,6 +124,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'RDS / DynamoDB',
         gcp: 'Cloud SQL / Firestore',
         azure: 'SQL Database / Cosmos DB',
+        local: 'PostgreSQL / MongoDB',
         notes: 'Each service owns its data'
       },
       {
@@ -118,6 +132,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'SQS / SNS',
         gcp: 'Pub/Sub',
         azure: 'Service Bus',
+        local: 'RabbitMQ / Apache Kafka',
         notes: 'Async communication between services'
       },
       {
@@ -125,6 +140,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'CloudWatch / X-Ray',
         gcp: 'Cloud Monitoring / Trace',
         azure: 'Application Insights',
+        local: 'Prometheus / Grafana / Jaeger',
         notes: 'Distributed tracing and metrics'
       }
     ],
@@ -136,7 +152,8 @@ const systemPlans: Record<string, SystemPlan> = {
       'Use GitOps for deployment (ArgoCD, Flux)',
       'Consider service mesh for advanced traffic management'
     ],
-    estimatedCost: '$2,000-10,000/month (depending on scale)'
+    estimatedCost: '$2,000-10,000/month (depending on scale)',
+    localCost: '$5,000-15,000 upfront + $500-2,000/month (servers, networking, staff)'
   },
   'serverless': {
     name: 'Serverless Application',
@@ -147,6 +164,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'API Gateway',
         gcp: 'API Gateway',
         azure: 'API Management',
+        local: 'Express.js / FastAPI',
         notes: 'RESTful API endpoints'
       },
       {
@@ -154,6 +172,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'Lambda',
         gcp: 'Cloud Functions',
         azure: 'Azure Functions',
+        local: 'OpenFaaS / Knative',
         notes: 'Event-driven compute'
       },
       {
@@ -161,6 +180,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'DynamoDB',
         gcp: 'Firestore',
         azure: 'Cosmos DB',
+        local: 'MongoDB / CouchDB',
         notes: 'Serverless NoSQL database'
       },
       {
@@ -168,6 +188,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'Cognito',
         gcp: 'Firebase Auth',
         azure: 'Azure AD B2C',
+        local: 'Keycloak / Auth0',
         notes: 'User authentication and authorization'
       },
       {
@@ -175,6 +196,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'S3',
         gcp: 'Cloud Storage',
         azure: 'Blob Storage',
+        local: 'MinIO / Ceph',
         notes: 'Object storage with triggers'
       },
       {
@@ -182,6 +204,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'EventBridge',
         gcp: 'Eventarc',
         azure: 'Event Grid',
+        local: 'RabbitMQ / NATS',
         notes: 'Event routing and processing'
       }
     ],
@@ -193,7 +216,8 @@ const systemPlans: Record<string, SystemPlan> = {
       'Implement proper error handling and retries',
       'Monitor costs closely (can scale unexpectedly)'
     ],
-    estimatedCost: '$50-500/month (pay per use, highly variable)'
+    estimatedCost: '$50-500/month (pay per use, highly variable)',
+    localCost: '$1,000-3,000 upfront + $100-300/month (minimal hardware, mostly software)'
   },
   'data-pipeline': {
     name: 'Data Pipeline & Analytics',
@@ -204,6 +228,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'Kinesis / DMS',
         gcp: 'Dataflow / Pub/Sub',
         azure: 'Event Hubs / Data Factory',
+        local: 'Apache NiFi / Logstash',
         notes: 'Stream and batch data ingestion'
       },
       {
@@ -211,6 +236,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'S3 + Glue',
         gcp: 'Cloud Storage + Dataproc',
         azure: 'Data Lake Storage',
+        local: 'HDFS / MinIO + Hive',
         notes: 'Raw data storage with catalog'
       },
       {
@@ -218,6 +244,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'EMR (Spark) / Glue',
         gcp: 'Dataproc / Dataflow',
         azure: 'HDInsight / Databricks',
+        local: 'Apache Spark / Flink',
         notes: 'ETL and data transformation'
       },
       {
@@ -225,6 +252,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'Redshift',
         gcp: 'BigQuery',
         azure: 'Synapse Analytics',
+        local: 'ClickHouse / Trino',
         notes: 'Analytical queries and BI'
       },
       {
@@ -232,6 +260,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'Step Functions / MWAA',
         gcp: 'Cloud Composer',
         azure: 'Data Factory',
+        local: 'Apache Airflow / Prefect',
         notes: 'Workflow management'
       },
       {
@@ -239,6 +268,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'QuickSight',
         gcp: 'Looker',
         azure: 'Power BI',
+        local: 'Apache Superset / Metabase',
         notes: 'Data visualization and reporting'
       }
     ],
@@ -250,7 +280,8 @@ const systemPlans: Record<string, SystemPlan> = {
       'Implement incremental processing',
       'Monitor data freshness and pipeline health'
     ],
-    estimatedCost: '$1,000-5,000/month (varies with data volume)'
+    estimatedCost: '$1,000-5,000/month (varies with data volume)',
+    localCost: '$10,000-30,000 upfront + $1,000-3,000/month (storage, compute cluster)'
   },
   'ml-platform': {
     name: 'ML Training & Inference',
