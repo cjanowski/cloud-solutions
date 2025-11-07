@@ -1,0 +1,154 @@
+{
+  "compute": [
+    {
+      "name": "t3.medium",
+      "vcpus": 2,
+      "memory": 4,
+      "pricePerHour": 0.0416,
+      "pricePerMonth": 30.37,
+      "provider": "aws",
+      "region": "us-east-1",
+      "instanceType": "t3.medium"
+    },
+    {
+      "name": "t3.large",
+      "vcpus": 2,
+      "memory": 8,
+      "pricePerHour": 0.0832,
+      "pricePerMonth": 60.74,
+      "provider": "aws",
+      "region": "us-east-1",
+      "instanceType": "t3.large"
+    },
+    {
+      "name": "e2-medium",
+      "vcpus": 2,
+      "memory": 4,
+      "pricePerHour": 0.0335,
+      "pricePerMonth": 24.45,
+      "provider": "gcp",
+      "region": "us-central1",
+      "instanceType": "e2-medium"
+    },
+    {
+      "name": "e2-standard-2",
+      "vcpus": 2,
+      "memory": 8,
+      "pricePerHour": 0.067,
+      "pricePerMonth": 48.91,
+      "provider": "gcp",
+      "region": "us-central1",
+      "instanceType": "e2-standard-2"
+    },
+    {
+      "name": "B2s",
+      "vcpus": 2,
+      "memory": 4,
+      "pricePerHour": 0.0416,
+      "pricePerMonth": 30.37,
+      "provider": "azure",
+      "region": "eastus",
+      "instanceType": "B2s"
+    },
+    {
+      "name": "B2ms",
+      "vcpus": 2,
+      "memory": 8,
+      "pricePerHour": 0.0832,
+      "pricePerMonth": 60.74,
+      "provider": "azure",
+      "region": "eastus",
+      "instanceType": "B2ms"
+    }
+  ],
+  "storage": [
+    {
+      "provider": "aws",
+      "storageType": "object",
+      "pricePerGBMonth": 0.023,
+      "region": "us-east-1",
+      "serviceName": "S3 Standard"
+    },
+    {
+      "provider": "aws",
+      "storageType": "block",
+      "pricePerGBMonth": 0.10,
+      "region": "us-east-1",
+      "serviceName": "EBS gp3"
+    },
+    {
+      "provider": "gcp",
+      "storageType": "object",
+      "pricePerGBMonth": 0.020,
+      "region": "us-central1",
+      "serviceName": "Cloud Storage Standard"
+    },
+    {
+      "provider": "gcp",
+      "storageType": "block",
+      "pricePerGBMonth": 0.10,
+      "region": "us-central1",
+      "serviceName": "Persistent Disk SSD"
+    },
+    {
+      "provider": "azure",
+      "storageType": "object",
+      "pricePerGBMonth": 0.0184,
+      "region": "eastus",
+      "serviceName": "Blob Storage Hot"
+    },
+    {
+      "provider": "azure",
+      "storageType": "block",
+      "pricePerGBMonth": 0.12,
+      "region": "eastus",
+      "serviceName": "Premium SSD"
+    }
+  ],
+  "bandwidth": [
+    {
+      "provider": "aws",
+      "region": "us-east-1",
+      "pricePerGB": 0.09,
+      "tier": "First 10 TB",
+      "direction": "egress"
+    },
+    {
+      "provider": "aws",
+      "region": "us-east-1",
+      "pricePerGB": 0.00,
+      "tier": "All",
+      "direction": "ingress"
+    },
+    {
+      "provider": "gcp",
+      "region": "us-central1",
+      "pricePerGB": 0.12,
+      "tier": "First 1 TB",
+      "direction": "egress"
+    },
+    {
+      "provider": "gcp",
+      "region": "us-central1",
+      "pricePerGB": 0.00,
+      "tier": "All",
+      "direction": "ingress"
+    },
+    {
+      "provider": "azure",
+      "region": "eastus",
+      "pricePerGB": 0.087,
+      "tier": "First 5 TB",
+      "direction": "egress"
+    },
+    {
+      "provider": "azure",
+      "region": "eastus",
+      "pricePerGB": 0.00,
+      "tier": "All",
+      "direction": "ingress"
+    }
+  ],
+  "lastUpdated": "2025-11-07T00:00:00Z"
+}
+

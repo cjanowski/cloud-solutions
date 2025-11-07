@@ -82,8 +82,16 @@ export const ComputeCalculator = () => {
       <GlassCard className="p-8">
         <h2 className="text-2xl font-bold text-white mb-6">Matching Instances</h2>
         {matchingInstances.length === 0 ? (
-          <div className="text-white/70 text-center py-8">
-            No matching instances found. Try adjusting your requirements.
+          <div className="text-center py-8 space-y-3">
+            <div className="text-white/70">
+              No pricing data available yet.
+            </div>
+            <div className="text-sm text-white/50">
+              To enable live pricing data, configure API keys in your environment variables or implement the pricing scraper.
+            </div>
+            <div className="text-xs text-white/40">
+              See DEPLOYMENT.md for instructions on adding AWS, GCP, and Azure API keys.
+            </div>
           </div>
         ) : (
           <div className="space-y-4">
