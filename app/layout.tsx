@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CloudSolutions - Multi-Cloud Tools & Calculators",
+  title: "Cloud Solutions - Multi-Cloud Tools & Calculators",
   description: "Professional multi-cloud solutions tool for AWS, GCP, and Azure with cost calculators, quick reference guides, and comparison tools.",
 };
 

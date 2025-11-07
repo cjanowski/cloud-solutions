@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { GlassCard } from '@/components/ui';
+import { SystemPlanner } from '@/components/SystemPlanner';
 
 export default function Home() {
   const features = [
@@ -37,7 +38,7 @@ export default function Home() {
     <div className="space-y-12">
       <div className="text-center space-y-4">
         <h1 className="text-6xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-          CloudSolutions
+          Cloud Solutions
         </h1>
         <p className="text-xl text-white/80 max-w-2xl mx-auto">
           Your comprehensive multi-cloud toolkit for AWS, GCP, and Azure. 
@@ -65,6 +66,8 @@ export default function Home() {
           </GlassCard>
         ))}
       </div>
+
+      <SystemPlanner />
 
       <GlassCard className="p-8 space-y-4">
         <h2 className="text-2xl font-bold text-white">Supported Cloud Providers</h2>
