@@ -10,6 +10,7 @@ export default function Home() {
         { href: '/calculators/compute', label: 'Compute Calculator' },
         { href: '/calculators/storage', label: 'Storage Calculator' },
         { href: '/calculators/bandwidth', label: 'Bandwidth Calculator' },
+        { href: '/calculators/capacity', label: 'Capacity Planning' },
       ],
       icon: '💰',
     },

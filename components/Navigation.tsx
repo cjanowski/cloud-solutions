@@ -12,6 +12,7 @@ export const Navigation = () => {
     { href: '/calculators/compute', label: 'Compute' },
     { href: '/calculators/storage', label: 'Storage' },
     { href: '/calculators/bandwidth', label: 'Bandwidth' },
+    { href: '/calculators/capacity', label: 'Capacity' },
     { href: '/quick-ref', label: 'Quick Ref' },
     { href: '/compare', label: 'Compare' },
   ];
