@@ -2,7 +2,7 @@
 
 A comprehensive multi-cloud solutions tool for AWS, GCP, and Azure with cost calculators, quick reference guides, and comparison tools. Perfect for solution architects and cloud professionals.
 
-Visit example Calc Here:
+View tool here: https://cloud-solutions-beta.vercel.app/
 
 ## Features
 
