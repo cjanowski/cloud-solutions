@@ -4,6 +4,8 @@ A comprehensive multi-cloud solutions tool for AWS, GCP, and Azure with cost cal
 
 View tool here: https://cloud-solutions-beta.vercel.app/
 
+<img width="1512" height="828" alt="Screenshot 2025-11-07 at 12 39 38 PM" src="https://github.com/user-attachments/assets/8603dd2d-558a-4ba2-8720-d90154459fad" />
+
 ## Features
 
 - **Cost Calculators**: Compare compute, storage, and bandwidth pricing across cloud providers
