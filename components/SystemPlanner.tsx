@@ -292,6 +292,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'S3',
         gcp: 'Cloud Storage',
         azure: 'Blob Storage',
+        local: 'MinIO / NFS / HDFS',
         notes: 'Training data and model artifacts'
       },
       {
@@ -299,6 +300,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'SageMaker',
         gcp: 'Vertex AI',
         azure: 'Azure ML',
+        local: 'Kubeflow / MLflow',
         notes: 'Distributed model training'
       },
       {
@@ -306,6 +308,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'EC2 P4/P5 instances',
         gcp: 'A2/A3 instances',
         azure: 'NC-series VMs',
+        local: 'On-prem GPU servers',
         notes: 'GPU instances for training'
       },
       {
@@ -313,6 +316,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'SageMaker Model Registry',
         gcp: 'Vertex AI Model Registry',
         azure: 'Azure ML Registry',
+        local: 'MLflow Model Registry',
         notes: 'Version control for models'
       },
       {
@@ -320,6 +324,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'SageMaker Endpoints',
         gcp: 'Vertex AI Endpoints',
         azure: 'Azure ML Endpoints',
+        local: 'TorchServe / TensorFlow Serving',
         notes: 'Real-time model serving'
       },
       {
@@ -327,6 +332,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'SageMaker Model Monitor',
         gcp: 'Vertex AI Model Monitoring',
         azure: 'Azure ML Monitoring',
+        local: 'Prometheus + Grafana',
         notes: 'Model drift and performance'
       },
       {
@@ -334,6 +340,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'SageMaker Feature Store',
         gcp: 'Vertex AI Feature Store',
         azure: 'Azure ML Feature Store',
+        local: 'Feast / Tecton',
         notes: 'Centralized feature management'
       }
     ],
@@ -345,7 +352,8 @@ const systemPlans: Record<string, SystemPlan> = {
       'Implement MLOps practices (CI/CD for ML)',
       'Consider model compression for inference'
     ],
-    estimatedCost: '$2,000-20,000/month (highly variable based on GPU usage)'
+    estimatedCost: '$2,000-20,000/month (highly variable based on GPU usage)',
+    localCost: '$50,000-200,000 upfront + $2,000-10,000/month (GPU servers, power, cooling)'
   },
   'real-time-streaming': {
     name: 'Real-Time Streaming Platform',
@@ -356,6 +364,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'MSK (Kafka) / Kinesis',
         gcp: 'Pub/Sub',
         azure: 'Event Hubs',
+        local: 'Apache Kafka / Pulsar',
         notes: 'High-throughput message streaming'
       },
       {
@@ -363,6 +372,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'Kinesis Analytics / Flink',
         gcp: 'Dataflow',
         azure: 'Stream Analytics',
+        local: 'Apache Flink / Spark Streaming',
         notes: 'Real-time data transformation'
       },
       {
@@ -370,6 +380,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'Timestream',
         gcp: 'Bigtable',
         azure: 'Time Series Insights',
+        local: 'InfluxDB / TimescaleDB',
         notes: 'Store time-series metrics'
       },
       {
@@ -377,6 +388,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'Kinesis Analytics',
         gcp: 'Dataflow + BigQuery',
         azure: 'Stream Analytics',
+        local: 'Apache Druid / ClickHouse',
         notes: 'Real-time aggregations'
       },
       {
@@ -384,6 +396,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'ElastiCache',
         gcp: 'Memorystore',
         azure: 'Cache for Redis',
+        local: 'Redis / Memcached',
         notes: 'Low-latency data access'
       },
       {
@@ -391,6 +404,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'Grafana / QuickSight',
         gcp: 'Looker / Grafana',
         azure: 'Power BI / Grafana',
+        local: 'Grafana / Apache Superset',
         notes: 'Real-time dashboards'
       }
     ],
@@ -402,7 +416,8 @@ const systemPlans: Record<string, SystemPlan> = {
       'Implement dead letter queues',
       'Plan for data retention and replay'
     ],
-    estimatedCost: '$1,500-8,000/month (based on throughput)'
+    estimatedCost: '$1,500-8,000/month (based on throughput)',
+    localCost: '$8,000-25,000 upfront + $800-2,500/month (servers, storage, network)'
   },
   'mobile-backend': {
     name: 'Mobile App Backend',
@@ -413,6 +428,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'API Gateway',
         gcp: 'Cloud Endpoints',
         azure: 'API Management',
+        local: 'Express.js / FastAPI + Kong',
         notes: 'RESTful/GraphQL APIs'
       },
       {
@@ -420,6 +436,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'Cognito',
         gcp: 'Firebase Auth',
         azure: 'Azure AD B2C',
+        local: 'Keycloak / Auth0',
         notes: 'User authentication'
       },
       {
@@ -427,6 +444,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'Lambda / ECS',
         gcp: 'Cloud Functions / Cloud Run',
         azure: 'Functions / Container Apps',
+        local: 'Node.js / Python + Docker',
         notes: 'Business logic processing'
       },
       {
@@ -434,6 +452,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'DynamoDB / Aurora',
         gcp: 'Firestore / Cloud SQL',
         azure: 'Cosmos DB',
+        local: 'PostgreSQL / MongoDB',
         notes: 'User data and app state'
       },
       {
@@ -441,6 +460,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'S3',
         gcp: 'Cloud Storage',
         azure: 'Blob Storage',
+        local: 'MinIO / NFS',
         notes: 'Images, videos, documents'
       },
       {
@@ -448,6 +468,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'SNS',
         gcp: 'Firebase Cloud Messaging',
         azure: 'Notification Hubs',
+        local: 'OneSignal / Pushy',
         notes: 'Mobile push notifications'
       },
       {
@@ -455,6 +476,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'Pinpoint',
         gcp: 'Firebase Analytics',
         azure: 'App Center Analytics',
+        local: 'Matomo / PostHog',
         notes: 'User behavior tracking'
       }
     ],
@@ -466,7 +488,8 @@ const systemPlans: Record<string, SystemPlan> = {
       'Handle network failures gracefully',
       'Implement app versioning and feature flags'
     ],
-    estimatedCost: '$300-3,000/month (scales with users)'
+    estimatedCost: '$300-3,000/month (scales with users)',
+    localCost: '$3,000-10,000 upfront + $300-1,000/month (servers, database, storage)'
   },
   'iot-platform': {
     name: 'IoT Platform',
@@ -477,6 +500,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'IoT Core',
         gcp: 'IoT Core',
         azure: 'IoT Hub',
+        local: 'Eclipse Mosquitto / HiveMQ',
         notes: 'MQTT/HTTP device connectivity'
       },
       {
@@ -484,6 +508,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'IoT Device Management',
         gcp: 'IoT Device Manager',
         azure: 'IoT Hub Device Provisioning',
+        local: 'ThingsBoard / DeviceHive',
         notes: 'Device registration and updates'
       },
       {
@@ -491,6 +516,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'Kinesis',
         gcp: 'Pub/Sub',
         azure: 'Event Hubs',
+        local: 'Apache Kafka / RabbitMQ',
         notes: 'High-volume telemetry data'
       },
       {
@@ -498,6 +524,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'Timestream',
         gcp: 'Bigtable',
         azure: 'Time Series Insights',
+        local: 'InfluxDB / TimescaleDB',
         notes: 'Store sensor data'
       },
       {
@@ -505,6 +532,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'IoT Rules',
         gcp: 'Cloud Functions',
         azure: 'Stream Analytics',
+        local: 'Node-RED / Apache Flink',
         notes: 'Real-time data processing'
       },
       {
@@ -512,6 +540,7 @@ const systemPlans: Record<string, SystemPlan> = {
         aws: 'IoT Analytics',
         gcp: 'BigQuery',
         azure: 'Synapse Analytics',
+        local: 'ClickHouse / Apache Druid',
         notes: 'Historical analysis'
       }
     ],
@@ -523,13 +552,13 @@ const systemPlans: Record<string, SystemPlan> = {
       'Monitor device health and connectivity',
       'Plan for data retention and archival'
     ],
-    estimatedCost: '$500-5,000/month (scales with device count)'
+    estimatedCost: '$500-5,000/month (scales with device count)',
+    localCost: '$5,000-15,000 upfront + $500-1,500/month (servers, storage, network)'
   }
 };
 
 export const SystemPlanner = () => {
   const [selectedSystem, setSelectedSystem] = useState('web-app');
-  const [selectedProvider, setSelectedProvider] = useState<'aws' | 'gcp' | 'azure'>('aws');
 
   const plan = systemPlans[selectedSystem];
 
@@ -543,34 +572,21 @@ export const SystemPlanner = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          <GlassSelect
-            label="System Type"
-            value={selectedSystem}
-            onChange={(e) => setSelectedSystem(e.target.value)}
-            options={[
-              { value: 'web-app', label: '🌐 Web Application (3-Tier)' },
-              { value: 'microservices', label: '🔷 Microservices Architecture' },
-              { value: 'serverless', label: '⚡ Serverless Application' },
-              { value: 'data-pipeline', label: '📊 Data Pipeline & Analytics' },
-              { value: 'ml-platform', label: '🤖 ML Training & Inference' },
-              { value: 'real-time-streaming', label: '🌊 Real-Time Streaming' },
-              { value: 'mobile-backend', label: '📱 Mobile App Backend' },
-              { value: 'iot-platform', label: '🔌 IoT Platform' }
-            ]}
-          />
-
-          <GlassSelect
-            label="Primary Cloud Provider"
-            value={selectedProvider}
-            onChange={(e) => setSelectedProvider(e.target.value as 'aws' | 'gcp' | 'azure')}
-            options={[
-              { value: 'aws', label: 'AWS (Amazon Web Services)' },
-              { value: 'gcp', label: 'GCP (Google Cloud Platform)' },
-              { value: 'azure', label: 'Azure (Microsoft Azure)' }
-            ]}
-          />
-        </div>
+        <GlassSelect
+          label="System Type"
+          value={selectedSystem}
+          onChange={(e) => setSelectedSystem(e.target.value)}
+          options={[
+            { value: 'web-app', label: '🌐 Web Application (3-Tier)' },
+            { value: 'microservices', label: '🔷 Microservices Architecture' },
+            { value: 'serverless', label: '⚡ Serverless Application' },
+            { value: 'data-pipeline', label: '📊 Data Pipeline & Analytics' },
+            { value: 'ml-platform', label: '🤖 ML Training & Inference' },
+            { value: 'real-time-streaming', label: '🌊 Real-Time Streaming' },
+            { value: 'mobile-backend', label: '📱 Mobile App Backend' },
+            { value: 'iot-platform', label: '🔌 IoT Platform' }
+          ]}
+        />
 
         <div className="p-6 rounded-lg bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-white/20">
           <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
@@ -582,32 +598,35 @@ export const SystemPlanner = () => {
           <div className="space-y-3">
             {plan.components.map((component, idx) => (
               <div key={idx} className="p-4 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-                <div className="flex justify-between items-start mb-2">
-                  <div className="font-semibold text-white">{component.layer}</div>
-                  <div className={`
-                    px-3 py-1 rounded-full text-sm font-medium
-                    ${selectedProvider === 'aws' ? 'bg-orange-500/20 text-orange-300' : ''}
-                    ${selectedProvider === 'gcp' ? 'bg-blue-500/20 text-blue-300' : ''}
-                    ${selectedProvider === 'azure' ? 'bg-purple-500/20 text-purple-300' : ''}
-                  `}>
-                    {selectedProvider === 'aws' && component.aws}
-                    {selectedProvider === 'gcp' && component.gcp}
-                    {selectedProvider === 'azure' && component.azure}
-                  </div>
+                <div className="mb-3">
+                  <div className="font-semibold text-white text-lg mb-1">{component.layer}</div>
+                  <div className="text-sm text-white/70">{component.notes}</div>
                 </div>
-                <div className="text-sm text-white/70">{component.notes}</div>
-                <div className="mt-2 pt-2 border-t border-white/10 text-xs text-white/50">
-                  <span className="text-orange-300">AWS:</span> {component.aws} • 
-                  <span className="text-blue-300 ml-2">GCP:</span> {component.gcp} • 
-                  <span className="text-purple-300 ml-2">Azure:</span> {component.azure}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                  <div className="p-3 rounded-lg bg-orange-500/10 border border-orange-500/30">
+                    <div className="text-xs text-orange-300 font-semibold mb-1">AWS</div>
+                    <div className="text-sm text-white">{component.aws}</div>
+                  </div>
+                  <div className="p-3 rounded-lg bg-blue-500/10 border border-blue-500/30">
+                    <div className="text-xs text-blue-300 font-semibold mb-1">GCP</div>
+                    <div className="text-sm text-white">{component.gcp}</div>
+                  </div>
+                  <div className="p-3 rounded-lg bg-purple-500/10 border border-purple-500/30">
+                    <div className="text-xs text-purple-300 font-semibold mb-1">Azure</div>
+                    <div className="text-sm text-white">{component.azure}</div>
+                  </div>
+                  <div className="p-3 rounded-lg bg-green-500/10 border border-green-500/30">
+                    <div className="text-xs text-green-300 font-semibold mb-1">Local/On-Prem</div>
+                    <div className="text-sm text-white">{component.local}</div>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="p-6 rounded-lg bg-white/5 border border-white/10">
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="md:col-span-2 p-6 rounded-lg bg-white/5 border border-white/10">
             <h3 className="text-lg font-bold text-white mb-4">Key Considerations</h3>
             <ul className="space-y-2">
               {plan.considerations.map((consideration, idx) => (
@@ -619,13 +638,24 @@ export const SystemPlanner = () => {
             </ul>
           </div>
 
-          <div className="p-6 rounded-lg bg-gradient-to-br from-green-500/10 to-blue-500/10 border border-green-500/30">
-            <h3 className="text-lg font-bold text-white mb-2">Estimated Cost</h3>
-            <div className="text-2xl font-bold text-green-400 mb-2">{plan.estimatedCost}</div>
-            <p className="text-sm text-white/70">
-              Costs vary based on traffic, data volume, and specific configurations. 
-              Use our calculators for detailed estimates.
-            </p>
+          <div className="space-y-4">
+            <div className="p-6 rounded-lg bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/30">
+              <h3 className="text-lg font-bold text-white mb-2">Cloud Cost</h3>
+              <div className="text-2xl font-bold text-blue-400 mb-2">{plan.estimatedCost}</div>
+              <p className="text-xs text-white/70">
+                Monthly operating cost for cloud deployment
+              </p>
+            </div>
+
+            {plan.localCost && (
+              <div className="p-6 rounded-lg bg-gradient-to-br from-green-500/10 to-teal-500/10 border border-green-500/30">
+                <h3 className="text-lg font-bold text-white mb-2">Local/On-Prem Cost</h3>
+                <div className="text-xl font-bold text-green-400 mb-2">{plan.localCost}</div>
+                <p className="text-xs text-white/70">
+                  Hardware, power, cooling, and maintenance
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
