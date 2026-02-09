@@ -6,7 +6,7 @@ export default function Home() {
   const features = [
     {
       title: 'Cost Calculators',
-      description: 'Calculate and compare costs for compute, storage, and bandwidth across AWS, GCP, and Azure.',
+      description: 'Calculate costs for compute, storage, and bandwidth across AWS, GCP, and Azure.',
       links: [
         { href: '/calculators/compute', label: 'Compute Calculator' },
         { href: '/calculators/storage', label: 'Storage Calculator' },
